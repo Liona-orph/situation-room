@@ -100,7 +100,7 @@ function isIncident(value: unknown): value is Incident {
 
 function loadIncidents(): Incident[] {
   try {
-    const raw = localStorage.getItem(storageKey);
+    const raw = window.localStorage.getItem(storageKey);
     if (!raw) {
       return cloneSeeds();
     }
@@ -116,7 +116,7 @@ function loadIncidents(): Incident[] {
 
 function persist(incidents: Incident[]): void {
   const payload: PersistedState = { version: 1, incidents };
-  localStorage.setItem(storageKey, JSON.stringify(payload));
+  window.localStorage.setItem(storageKey, JSON.stringify(payload));
 }
 
 function reducer(state: State, action: Action): State {

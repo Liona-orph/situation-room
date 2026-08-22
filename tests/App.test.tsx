@@ -5,7 +5,7 @@ import App from "../src/App";
 
 describe("Situation Room", () => {
   beforeEach(() => {
-    localStorage.clear();
+    window.localStorage.clear();
   });
 
   it("declares a new incident through the command-center form", async () => {
